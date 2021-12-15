@@ -1,3 +1,10 @@
-h1, p {
+h1,
+p {
   font-family: Lato;
+  background-color: aqua;
+}
+
+.unchecked {
+  background-color: aqua;
+  border: 12cm;
 }
