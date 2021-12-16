@@ -9,7 +9,6 @@ export default function App() {
     <div>
       <h1>Primer componente</h1>
       <Lista nombre="Hola" elementos={elementos} />
-      <Lista nombre="Xd" elementos={elementos} />
     </div>
   );
 }

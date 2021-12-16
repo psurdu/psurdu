@@ -8,3 +8,8 @@ p {
   background-color: aqua;
   border: 12cm;
 }
+
+.checked {
+  background-color: rgb(21, 248, 0);
+  border: 12cm;
+}
