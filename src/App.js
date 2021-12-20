@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import { ListaClase } from './components/ListaClase.jsx';
+//import { Lista } from './components/Lista.jsx';
 
 export default function App() {
   const elementos = ['hola', 'hola2', 'hola3'];

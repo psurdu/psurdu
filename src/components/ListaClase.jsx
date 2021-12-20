@@ -4,11 +4,15 @@ import ComponenteListaClase from './ComponenteListaClase';
 class ListaClase extends React.Component {
   constructor(props) {
     super(props);
-    this.nombre=props.nombre;
-    
+    this.nombre = props.nombre;
+    this.icono = props.icono;
+    this.elementos = props.elementos;
   }
 
   Lista() {
+    const [listaComponentes, setListaComponentes] = useState(listaInicial);
+    const valorTextInput = useRef();
+    const seleccion = useRef();
     const listaInicial = [];
     if (props.elementos !== undefined) {
       for (let i = 0; i < props.elementos.length; i++) {
@@ -20,14 +24,13 @@ class ListaClase extends React.Component {
           />
         );
       }
-
-      const [listaComponentes, setListaComponentes] = useState(listaInicial);
-      const valorTextInput = useRef();
-      const seleccion = useRef();
     }
   }
 
   addElement() {
+    const [listaComponentes, setListaComponentes] = useState(listaInicial);
+    const valorTextInput = useRef();
+    const seleccion = useRef();
     const newLista = listaComponentes.concat(
       <ComponenteListaClase
         texto={valorTextInput.current.value}
@@ -62,4 +65,4 @@ class ListaClase extends React.Component {
   }
 }
 
-export ListaClase;
+export default ListaClase;

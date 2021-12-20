@@ -1,4 +1,4 @@
-/*import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import ComponenteListaClase from './ComponenteListaClase';
 export function Lista(props) {
   const listaInicial = [];
@@ -50,4 +50,3 @@ export function Lista(props) {
     </div>
   );
 }
-*/
