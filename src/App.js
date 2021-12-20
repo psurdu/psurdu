@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Lista } from './components/Lista.jsx';
+import { ListaClase } from './components/ListaClase.jsx';
 
 export default function App() {
   const elementos = ['hola', 'hola2', 'hola3'];
@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div>
       <h1>Primer componente</h1>
-      <Lista nombre="Hola" elementos={elementos} />
+      <ListaClase nombre="Hola" elementos={elementos} />
     </div>
   );
 }

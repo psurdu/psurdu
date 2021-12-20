@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+/*import React, { useState, useRef } from 'react';
 import ComponenteListaClase from './ComponenteListaClase';
 export function Lista(props) {
   const listaInicial = [];
@@ -15,11 +15,15 @@ export function Lista(props) {
   }
 
   const [listaComponentes, setListaComponentes] = useState(listaInicial);
-  const valorTextInput = useRef('');
+  const valorTextInput = useRef();
+  const seleccion = useRef();
 
   const funcion = function addElement() {
     const newLista = listaComponentes.concat(
-      <ComponenteListaClase texto={valorTextInput.current.value} />
+      <ComponenteListaClase
+        texto={valorTextInput.current.value}
+        prioridad={seleccion.current.value}
+      />
     );
     setListaComponentes(newLista);
   };
@@ -35,10 +39,15 @@ export function Lista(props) {
             type="text"
             placeholder="Introduce una tarea"
           />
-          <br />
           <button onClick={funcion}>Añadir</button>
+          <select ref={seleccion}>
+            <option value="baja">baja</option>
+            <option value="media">media</option>
+            <option value="alta">alta</option>
+          </select>
         </li>
       </ul>
     </div>
   );
 }
+*/
