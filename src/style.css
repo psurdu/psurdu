@@ -1,15 +1,5 @@
 h1,
 p {
   font-family: Lato;
-  background-color: aqua;
-}
-
-.unchecked {
-  background-color: aqua;
-  border: 12cm;
-}
-
-.checked {
-  background-color: rgb(21, 248, 0);
-  border: 12cm;
+  color: red;
 }

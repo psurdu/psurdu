@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Lista } from './components/Lista.jsx';
+import { Lista } from './Lista.jsx';
 
 export default function App() {
   const elementos = ['hola', 'hola2', 'hola3'];

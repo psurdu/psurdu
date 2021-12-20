@@ -1,17 +1,24 @@
 import React from 'react';
-import { LineaLista } from './LineaLista';
-
+import ComponenteListaClase from './ComponenteListaClase';
 export function Lista(props) {
-  const listaComp = [];
+  const listaComponentes = [];
 
-  for (let i = 0; i < props.elementos.length; i++) {
-    listaComp.push(<LineaLista titulo={props.elementos[i]} />);
+  if (props.elementos !== undefined) {
+    for (let i = 0; i < props.elementos.length; i++) {
+      listaComponentes.push(
+        <ComponenteListaClase
+          done={props.elementos[i].done}
+          texto={props.elementos[i].texto}
+          prioridad={props.elementos[i].prioridad}
+        />
+      );
+    }
   }
 
   return (
     <div>
-      {props.nombre}
-      <ul>{listaComp}</ul>
+      {props.titulo} - {props.icono}
+      <ul>{listaComponentes}</ul>
     </div>
   );
 }
