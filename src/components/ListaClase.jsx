@@ -4,23 +4,23 @@ import ComponenteListaClase from './ComponenteListaClase';
 class ListaClase extends React.Component {
   constructor(props) {
     super(props);
-    this.nombre = props.nombre;
-    this.icono = props.icono;
-    this.elementos = props.elementos;
+    this.listaInicial = [];
+    this.listaComponentes = [];
+    this.valorTextInput = React.createRef();
+    this.seleccion = React.createRef();
+    this.state = {
+      listaComponentes: this.listaInicial,
+    };
   }
 
   Lista() {
-    const [listaComponentes, setListaComponentes] = useState(listaInicial);
-    const valorTextInput = useRef();
-    const seleccion = useRef();
-    const listaInicial = [];
-    if (props.elementos !== undefined) {
-      for (let i = 0; i < props.elementos.length; i++) {
-        listaInicial.push(
+    if (this.props.elementos !== undefined) {
+      for (let i = 0; i < this.props.elementos.length; i++) {
+        this.listaInicial.push(
           <ComponenteListaClase
-            done={props.elementos[i].done}
-            texto={props.elementos[i].texto}
-            prioridad={props.elementos[i].prioridad}
+            done={this.props.elementos[i].done}
+            texto={this.props.elementos[i].texto}
+            prioridad={this.props.elementos[i].prioridad}
           />
         );
       }
@@ -28,32 +28,30 @@ class ListaClase extends React.Component {
   }
 
   addElement() {
-    const [listaComponentes, setListaComponentes] = useState(listaInicial);
-    const valorTextInput = useRef();
-    const seleccion = useRef();
-    const newLista = listaComponentes.concat(
+    const newLista = this.state.listaComponentes.concat(
       <ComponenteListaClase
-        texto={valorTextInput.current.value}
-        prioridad={seleccion.current.value}
+        texto={this.valorTextInput.current.value}
+        prioridad={this.seleccion.current.value}
       />
     );
-    setListaComponentes(newLista);
+    this.setState({ listaComponentes: newLista });
   }
 
   render() {
+    this.Lista();
     return (
       <div>
-        {props.titulo} - {props.icono}
+        {this.props.titulo} - {this.props.icono}
         <ul>
-          {listaComponentes}
+          {this.state.listaComponentes}
           <li>
             <input
-              ref={valorTextInput}
+              ref={this.valorTextInput}
               type="text"
               placeholder="Introduce una tarea"
             />
-            <button onClick={funcion}>Añadir</button>
-            <select ref={seleccion}>
+            <button onClick={this.addElement.bind(this)}>Añadir</button>
+            <select ref={this.seleccion}>
               <option value="baja">baja</option>
               <option value="media">media</option>
               <option value="alta">alta</option>

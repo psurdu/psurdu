@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Lista } from './components/Lista';
+//import { Lista } from './components/Lista';
 import ListaClase from './components/ListaClase';
 
 export function App() {
