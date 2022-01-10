@@ -1,9 +1,11 @@
 import React from 'react';
 
-import ListaClase from './components/ListaClase';
 import Header from './components/Header.jsx';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
+import { Perfil } from './components/Perfil';
+import { Tareas } from './components/Tareas';
+import { Login } from './components/Login';
 
 export function App() {
   const elementos1 = [
@@ -20,17 +22,12 @@ export function App() {
   return (
     <div>
       <Router>
-        <Route path="/" component={Home} />
         <Header />
+        <Route path="/tareas" exact component={Tareas} />
+        <Route path="/home" exact component={Home} />
+        <Route path="/perfil" exact component={Perfil} />
+        <Route path="/login" exact component={Login} />
       </Router>
-      <h1>Listas de tareas</h1>
-      <ListaClase titulo="Tareas de la casa" icono="♥" elementos={elementos1} />
-      <ListaClase
-        titulo="Lista de la compra"
-        icono="✌"
-        elementos={elementos2}
-      />
-      <ListaClase titulo="ToDos del curso" icono="🙌" elementos={elementos3} />
     </div>
   );
 }

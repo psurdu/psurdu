@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './header.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
@@ -9,19 +10,23 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header>
+      <header class="cabecera">
         <div>
           <nav>
             <ul>
-              <select>
-                <option value="O1">O1</option>
-                <option value="O2">O2</option>
-                <option value="O3">O3</option>
-              </select>
-              <li>Inicio</li>
-              <li>Compra</li>
               <li>
-                <button class="botonLogin">Login</button>
+                <Link to="/home">Home</Link>
+              </li>
+              <li>
+                <Link to="/perfil">Perfil</Link>
+              </li>
+              <li>
+                <Link to="/tareas">Tareas</Link>
+              </li>
+              <li>
+                <button class="botonLogin">
+                  <Link to="/login">Login</Link>
+                </button>
               </li>
               <li>
                 <button class="botonSingIn">Sing In</button>
