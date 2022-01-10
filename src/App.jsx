@@ -1,8 +1,9 @@
 import React from 'react';
 
-//import { Lista } from './components/Lista';
 import ListaClase from './components/ListaClase';
 import Header from './components/Header.jsx';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Home } from './components/Home';
 
 export function App() {
   const elementos1 = [
@@ -18,7 +19,10 @@ export function App() {
 
   return (
     <div>
-      <Header />
+      <Router>
+        <Route path="/" component={Home} />
+        <Header />
+      </Router>
       <h1>Listas de tareas</h1>
       <ListaClase titulo="Tareas de la casa" icono="♥" elementos={elementos1} />
       <ListaClase

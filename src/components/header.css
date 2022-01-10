@@ -1,10 +1,8 @@
-li {
-  list-style: none;
-  display: inline;
-
-  padding-left: 15%;
-}
-
 header {
   background-color: darkorange;
+}
+
+header * {
+  display: inline;
+  width: max-content;
 }
