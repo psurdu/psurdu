@@ -2,10 +2,26 @@ import React from 'react';
 
 import './header.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { MenuItems } from '../data/MenuItems';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  createMenuLinks() {
+    const listComponents = [];
+
+    for (let i = 0; i < MenuItems.length; i++) {
+      listComponents.push(
+        <li>
+          <Link to={MenuItems[i].path}>{MenuItems[i].title}</Link>
+        </li>
+      );
+    }
+    return listComponents;
+
+    return <div />;
   }
 
   render() {
@@ -14,15 +30,15 @@ class Header extends React.Component {
         <div>
           <nav>
             <ul>
-              <li>
-                <Link to="/home">Home</Link>
-              </li>
-              <li>
-                <Link to="/perfil">Perfil</Link>
-              </li>
-              <li>
-                <Link to="/tareas">Tareas</Link>
-              </li>
+              {MenuItems.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <Link to={item.path}>{item.title}</Link>
+                  </li>
+                );
+              })}
+
+              {/*this.createMenuLinks()*/}
               <li>
                 <button class="botonLogin">
                   <Link to="/login">Login</Link>

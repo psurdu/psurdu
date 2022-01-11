@@ -6,6 +6,7 @@ import { Home } from './components/Home';
 import { Perfil } from './components/Perfil';
 import { Tareas } from './components/Tareas';
 import { Login } from './components/Login';
+import { MenuItems } from './data/MenuItems.js';
 
 export function App() {
   const elementos1 = [
@@ -23,9 +24,10 @@ export function App() {
     <div>
       <Router>
         <Header />
-        <Route path="/tareas" exact component={Tareas} />
-        <Route path="/home" exact component={Home} />
-        <Route path="/perfil" exact component={Perfil} />
+
+        {MenuItems.map((item) => {
+          return <Route path={item.path} exact component={item.component} />;
+        })}
         <Route path="/login" exact component={Login} />
       </Router>
     </div>
