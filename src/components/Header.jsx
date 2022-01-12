@@ -9,7 +9,7 @@ class Header extends React.Component {
     super(props);
   }
 
-  createMenuLinks() {
+  /*createMenuLinks() {
     const listComponents = [];
 
     for (let i = 0; i < MenuItems.length; i++) {
@@ -22,7 +22,7 @@ class Header extends React.Component {
     return listComponents;
 
     return <div />;
-  }
+  }*/
 
   render() {
     return (
@@ -37,7 +37,6 @@ class Header extends React.Component {
                   </li>
                 );
               })}
-
               {/*this.createMenuLinks()*/}
               <li>
                 <button class="botonLogin">
