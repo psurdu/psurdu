@@ -26,7 +26,14 @@ export function App() {
         <Header />
 
         {MenuItems.map((item) => {
-          return <Route path={item.path} exact component={item.component} />;
+          return (
+            <Route
+              key={item.id}
+              path={item.path}
+              exact
+              component={item.component}
+            />
+          );
         })}
         <Route path="/login" exact component={Login} />
       </Router>
