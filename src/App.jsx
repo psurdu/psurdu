@@ -24,7 +24,6 @@ export function App() {
     <div>
       <Router>
         <Header />
-
         {MenuItems.map((item) => {
           return (
             <Route
