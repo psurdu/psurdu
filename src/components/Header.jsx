@@ -39,9 +39,9 @@ class Header extends React.Component {
               })}
               {/*this.createMenuLinks()*/}
               <li>
-                <button class="botonLogin">
-                  <Link to="/login">Login</Link>
-                </button>
+                <Link to="/login">
+                  <button class="botonLogin">Login</button>
+                </Link>
               </li>
               <li>
                 <button class="botonSingIn">Sing In</button>
