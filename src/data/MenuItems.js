@@ -1,6 +1,7 @@
 import { Home } from '../components/Home';
 import { Tareas } from '../components/Tareas';
 import { Perfil } from '../components/Perfil';
+import { Login } from '../components/Login';
 
 export const MenuItems = [
   {
@@ -20,5 +21,11 @@ export const MenuItems = [
     path: '/Perfil',
     title: 'Perfil',
     component: Perfil,
+  },
+  {
+    id: 4,
+    path: '/Login',
+    title: 'Login',
+    component: Login,
   },
 ];

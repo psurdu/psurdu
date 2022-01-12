@@ -2,7 +2,6 @@ import React from 'react';
 
 import Header from './components/Header.jsx';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Login } from './components/Login';
 import { MenuItems } from './data/MenuItems.js';
 
 export function App() {
@@ -31,7 +30,6 @@ export function App() {
             />
           );
         })}
-        <Route path="/login" exact component={Login} />
       </Router>
     </div>
   );

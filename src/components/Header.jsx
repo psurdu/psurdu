@@ -31,18 +31,23 @@ class Header extends React.Component {
           <nav>
             <ul>
               {MenuItems.map((item) => {
-                return (
-                  <li key={item.id}>
-                    <Link to={item.path}>{item.title}</Link>
-                  </li>
-                );
+                if (item.id !== 4) {
+                  return (
+                    <li key={item.id}>
+                      <Link to={item.path}>{item.title}</Link>
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li>
+                      <Link to="/login">
+                        <button class="botonLogin">Login</button>
+                      </Link>
+                    </li>
+                  );
+                }
               })}
               {/*this.createMenuLinks()*/}
-              <li>
-                <Link to="/login">
-                  <button class="botonLogin">Login</button>
-                </Link>
-              </li>
               <li>
                 <button class="botonSingIn">Sing In</button>
               </li>
