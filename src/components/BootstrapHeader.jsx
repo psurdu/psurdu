@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav} from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
 import { MenuItems } from '../data/MenuItems';
 
@@ -19,6 +19,7 @@ class BootstrapHeader extends React.Component {
               className="logo-image"
               src="https://eu01.edcwb.com/buscador/img/centros/logogrande/7348-a9c730d6b2b644f5b9910364ba6af277.jpg"
             />
+            <br />
             <i className="fas fa-user-graduate" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
