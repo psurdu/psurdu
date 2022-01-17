@@ -3,6 +3,8 @@ import React from 'react';
 import Header from './components/Header.jsx';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { MenuItems } from './data/MenuItems.js';
+import uuid from 'react-uuid';
+import BootstrapHeader from './components/BootstrapHeader.jsx';
 
 export function App() {
   const elementos1 = [
@@ -19,11 +21,11 @@ export function App() {
   return (
     <div>
       <Router>
-        <Header />
+        <BootstrapHeader />
         {MenuItems.map((item) => {
           return (
             <Route
-              key={item.id}
+              key={uuid()}
               path={item.path}
               exact
               component={item.component}
