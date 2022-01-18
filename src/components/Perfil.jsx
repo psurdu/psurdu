@@ -1,11 +1,11 @@
 import React from 'react';
-import { Tabla } from './Tabla';
+import TablaDatos  from './TablaDatos';
 
-export function Perfil() {
+export  function Perfil() {
   return (
     <div>
-      <Tabla />
       <h1>Página del Perfil</h1>
+      <TablaDatos />
     </div>
   );
 }
