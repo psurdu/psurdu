@@ -8,6 +8,15 @@ import { ListaDatos } from '../data/ListaDatos.js';
 class TablaDatos extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      idJuego: 1,
+    };
+
+    this.juegoClick = this.juegoClick.bind(this);
+  }
+
+  juegoClick(i) {
+    this.setState({ idJuego: i });
   }
 
   render() {
@@ -24,29 +33,33 @@ class TablaDatos extends React.Component {
                   ))}
                 </tr>
               </thead>
+
               <tbody>
-                <tr>
-                  <td>1</td>
-                  {ListaDatos.map((item) => (
-                    <td key={item.id}>{item.cell1}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>2</td>
-                  {ListaDatos.map((item) => (
-                    <td key={item.id}>{item.cell2}</td>
-                  ))}
-                </tr>
-                <tr>
-                  <td>3</td>
-                  {ListaDatos.map((item) => (
-                    <td key={item.id}>{item.cell3}</td>
-                  ))}
-                </tr>
+                {ListaDatos.map((item) => {
+                  return (
+                    <tr onClick={this.juegoClick(item.id)}>
+                      <td>{item.id}</td>
+                      <td>{item.cell1}</td>
+                      <td>{item.cell2}</td>
+                      <td>{item.cell3}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
           </Col>
-          <Col></Col>
+          <Col>
+            <Card>
+              <Card.Header>{this.state.idJuego}</Card.Header>
+              <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Text>
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
         </Row>
       </Container>
     );
