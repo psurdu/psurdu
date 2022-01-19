@@ -16,7 +16,7 @@ class TablaDatos extends React.Component {
   }
 
   juegoClick(i) {
-    this.setState({ idJuego: i });
+    this.setState({ idJuego: i -1});
   }
 
   render() {
@@ -27,21 +27,21 @@ class TablaDatos extends React.Component {
             <Table responsive>
               <thead>
                 <tr>
-                  <th>#</th>
-                  {ListaDatos.map((item) => (
-                    <th key={item.id}>{item.heding}</th>
-                  ))}
+                  <th>Nombre</th>
+                  <th>Popularidad</th>
+                  <th>Precio</th>
+                  <th>Calidad</th>
                 </tr>
               </thead>
 
               <tbody>
                 {ListaDatos.map((item) => {
                   return (
-                    <tr onClick={this.juegoClick(item.id)}>
-                      <td>{item.id}</td>
-                      <td>{item.cell1}</td>
-                      <td>{item.cell2}</td>
-                      <td>{item.cell3}</td>
+                    <tr onClick={() => this.juegoClick(item.id)}>
+                      <td>{item.nombre}</td>
+                      <td>{item.popularidad}</td>
+                      <td>{item.precio}</td>
+                      <td>{item.calidad}</td>
                     </tr>
                   );
                 })}
@@ -50,12 +50,11 @@ class TablaDatos extends React.Component {
           </Col>
           <Col>
             <Card>
-              <Card.Header>{this.state.idJuego}</Card.Header>
+              <Card.Header><img src={ListaDatos[this.state.idJuego].imagen}/></Card.Header>
               <Card.Body>
-                <Card.Title>Special title treatment</Card.Title>
+                <Card.Title>{ListaDatos[this.state.idJuego].nombre}</Card.Title>
                 <Card.Text>
-                  With supporting text below as a natural lead-in to additional
-                  content.
+                  {ListaDatos[this.state.idJuego].descripcion}
                 </Card.Text>
               </Card.Body>
             </Card>
