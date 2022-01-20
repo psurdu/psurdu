@@ -16,7 +16,7 @@ class TablaDatos extends React.Component {
   }
 
   juegoClick(i) {
-    this.setState({ idJuego: i -1});
+    this.setState({ idJuego: i });
   }
 
   render() {
@@ -37,7 +37,7 @@ class TablaDatos extends React.Component {
               <tbody>
                 {ListaDatos.map((item) => {
                   return (
-                    <tr onClick={() => this.juegoClick(item.id)}>
+                    <tr onClick={() => this.juegoClick(item.id - 1)}>
                       <td>{item.nombre}</td>
                       <td>{item.popularidad}</td>
                       <td>{item.precio}</td>
@@ -50,7 +50,9 @@ class TablaDatos extends React.Component {
           </Col>
           <Col>
             <Card>
-              <Card.Header><img src={ListaDatos[this.state.idJuego].imagen}/></Card.Header>
+              <Card.Header>
+                <img src={ListaDatos[this.state.idJuego].imagen} />
+              </Card.Header>
               <Card.Body>
                 <Card.Title>{ListaDatos[this.state.idJuego].nombre}</Card.Title>
                 <Card.Text>
