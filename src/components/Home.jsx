@@ -12,6 +12,7 @@ class Home extends React.Component {
 
     this.nombre = React.createRef();
     this.pass = React.createRef();
+    this.check = React.createRef();
   }
 
   login() {
@@ -21,15 +22,28 @@ class Home extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    localStorage.setItem('user', this.state.user);
+    localStorage.setItem('pass', this.state.password);
+  }
+
+  componentDidMount() {
+    this.setState({
+      user: localStorage.getItem('user'),
+      pass: localStorage.getItem('pass'),
+    });
+  }
+
   render() {
     if (
       this.state !== null &&
-      this.state.user != null &&
+      this.state.user !== null &&
       this.state.user !== ''
     ) {
       return (
         <div className="main-site">
           <h1>Bienvenido {this.state.user}!</h1>
+          {localStorage.getItem('')}
         </div>
       );
     } else {
@@ -57,7 +71,11 @@ class Home extends React.Component {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Recordarme" />
+                <Form.Check
+                  type="checkbox"
+                  label="Recordarme"
+                  ref={this.check}
+                />
               </Form.Group>
 
               <Button variant="primary" type="button" onClick={this.login}>
