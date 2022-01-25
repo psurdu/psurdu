@@ -30,7 +30,7 @@ class BootstrapHeader extends React.Component {
             <Nav>
               {MenuItems.map((Item) => {
                 return (
-                  <Nav.Link key={Item.key} as={Link} to={Item.path}>
+                  <Nav.Link key={Item.id} as={Link} to={Item.path}>
                     {Item.title}
                   </Nav.Link>
                 );

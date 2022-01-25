@@ -1,4 +1,4 @@
-import { Home } from '../components/Home';
+import Home from '../components/Home';
 import { Tareas } from '../components/Tareas';
 import { Perfil } from '../components/Perfil';
 import { Login } from '../components/Login';
