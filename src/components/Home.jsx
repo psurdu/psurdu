@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { Container, Form, Button } from 'react-bootstrap';
+import { UserData } from '../data/UserData';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { user: '', password: '' };
+    this.state = { user: '', password: '', id: '' };
 
     this.login = this.login.bind(this);
 
@@ -23,27 +24,31 @@ class Home extends React.Component {
   }
 
   componentWillUnmount() {
-    localStorage.setItem('user', this.state.user);
-    localStorage.setItem('pass', this.state.password);
+    {
+      {
+        UserData.map((item) => {
+          if (
+            item.email === this.state.user &&
+            item.pass === this.state.password
+          ) {
+            localStorage.setItem('id', item.id);
+          }
+        });
+      }
+    }
   }
 
   componentDidMount() {
     this.setState({
-      user: localStorage.getItem('user'),
-      pass: localStorage.getItem('pass'),
+      id: localStorage.getItem('id'),
     });
   }
 
   render() {
-    if (
-      this.state !== null &&
-      this.state.user !== null &&
-      this.state.user !== ''
-    ) {
+    if (localStorage.getItem('id') !== null) {
       return (
         <div className="main-site">
-          <h1>Bienvenido {this.state.user}!</h1>
-          {localStorage.getItem('')}
+          <h1>Bienvenido {UserData[localStorage.getItem('id')].nombre}</h1>
         </div>
       );
     } else {
@@ -77,7 +82,6 @@ class Home extends React.Component {
                   ref={this.check}
                 />
               </Form.Group>
-
               <Button variant="primary" type="button" onClick={this.login}>
                 Login
               </Button>

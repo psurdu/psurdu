@@ -1,7 +1,7 @@
 import Home from '../components/Home';
 import { Tareas } from '../components/Tareas';
 import { TablaJuegos } from '../components/TablaJuegos';
-import { Perfil } from '../components/Perfil';
+import Perfil from '../components/Perfil';
 
 export const MenuItems = [
   {
