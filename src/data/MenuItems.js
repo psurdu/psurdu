@@ -1,7 +1,7 @@
 import Home from '../components/Home';
 import { Tareas } from '../components/Tareas';
+import { TablaJuegos } from '../components/TablaJuegos';
 import { Perfil } from '../components/Perfil';
-import { Login } from '../components/Login';
 
 export const MenuItems = [
   {
@@ -18,14 +18,14 @@ export const MenuItems = [
   },
   {
     id: 3,
-    path: '/Perfil',
-    title: 'Perfil',
-    component: Perfil,
+    path: '/TablaJuegos',
+    title: 'Tabla de juegos',
+    component: TablaJuegos,
   },
   {
     id: 4,
-    path: '/Login',
-    title: 'Login',
-    component: Login,
+    path: '/Perfil',
+    title: 'Perfil',
+    component: Perfil,
   },
 ];
