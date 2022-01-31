@@ -1,4 +1,3 @@
-import getDocumentElement from '@popperjs/core/lib/dom-utils/getDocumentElement';
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { Container, Row, Card } from 'react-bootstrap';

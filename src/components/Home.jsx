@@ -7,7 +7,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { user: '', password: '', id: '' };
+    this.state = { user: '', password: '', id: '0' };
 
     this.login = this.login.bind(this);
 
@@ -38,17 +38,29 @@ class Home extends React.Component {
     }
   }
 
+  findId() {
+    UserData.map((item) => {
+      if (item.email === this.state.user && item.pass === this.state.password) {
+        this.setState({
+          id: item.id,
+        });
+      }
+    });
+  }
+
   componentDidMount() {
+    this.findId;
     this.setState({
       id: localStorage.getItem('id'),
     });
   }
 
   render() {
-    if (localStorage.getItem('id') !== null) {
+    console.log(this.state.user);
+    if (this.state.id !== null) {
       return (
         <div className="main-site">
-          <h1>Bienvenido {UserData[localStorage.getItem('id')].nombre}</h1>
+          <h1>Bienvenido {UserData[this.state.id].nombre}</h1>
         </div>
       );
     } else {

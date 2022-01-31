@@ -28,7 +28,7 @@ class Perfil extends React.Component {
   }
 
   logout() {
-    localStorage.clear(this);
+    localStorage.removeItem('id');
   }
 
   render() {
