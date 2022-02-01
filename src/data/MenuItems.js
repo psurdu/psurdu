@@ -2,7 +2,7 @@ import Home from '../components/Home';
 import { Tareas } from '../components/Tareas';
 import { TablaJuegos } from '../components/TablaJuegos';
 import Perfil from '../components/Perfil';
-import PelisGhibli from '../components/PelisGhibli';
+import Youtube from '../components/Youtube';
 
 export const MenuItems = [
   {
@@ -31,8 +31,8 @@ export const MenuItems = [
   },
   {
     id: 5,
-    path: '/PelisGhibli',
-    title: 'Pelis Ghibli',
-    component: PelisGhibli,
+    path: '/Youtube',
+    title: 'Youtube',
+    component: Youtube,
   },
 ];
