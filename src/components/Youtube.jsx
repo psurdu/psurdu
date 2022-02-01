@@ -8,9 +8,13 @@ class Youtube extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedItem: '',
+      selectedItem: 0,
       tableData: [],
+      title: '',
+      imagenUrl: '',
+      descipcion: '',
     };
+    this.videoClick = this.videoClick.bind(this);
   }
 
   async componentDidMount() {
@@ -19,20 +23,30 @@ class Youtube extends React.Component {
     );
     const responseData = await response.json();
 
-    console.log('asdasd', responseData.items);
+    this.setState({
+      tableData: responseData.items,
+      imagenUrl:
+        responseData.items[this.state.selectedItem].snippet.thumbnails.high.url,
+      title: responseData.items[this.state.selectedItem].snippet.title,
+      descipcion:
+        responseData.items[this.state.selectedItem].snippet.description,
+    });
+  }
+
+  videoClick(item) {
+    console.log('i', item);
+
+    const data = this.state.tableData;
 
     this.setState({
-      tableData: responseData,
-      selectedItem: responseData[0],
+      imagenUrl: data[item].snippet.thumbnails.high.url,
+      title: data[item].snippet.title,
+      descipcion: data[item].snippet.description,
     });
-    console.log('bb', this.state.tableData);
   }
 
   render() {
-    console.log('after', this.state.tableData.items);
-    const a = this.state.tableData.items;
     if (this.state.tableData.items !== null) {
-      console.log('after2', this.state.tableData.items);
       return (
         <Container>
           <h1>Mis lista de reproducción</h1>
@@ -47,12 +61,12 @@ class Youtube extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.tableData.items.map((item) => {
+                  {this.state.tableData.map((item, index) => {
                     return (
-                      <tr onClick={}>
+                      <tr onClick={() => this.videoClick(index)}>
                         <td>{item.snippet.title}</td>
+                        <td>{item.snippet.channelTitle}</td>
                         <td>{item.snippet.publishedAt}</td>
-                        <td>{item.channel}</td>
                       </tr>
                     );
                   })}
@@ -62,9 +76,9 @@ class Youtube extends React.Component {
             <Col>
               <Card>
                 <Card.Body>
-                  <Card.Img variant="top" />
-                  <Card.Title></Card.Title>
-                  <Card.Text></Card.Text>
+                  <Card.Img variant="top" src={this.state.imagenUrl} />
+                  <Card.Title>{this.state.title}</Card.Title>
+                  <Card.Text>{this.state.descipcion}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -72,7 +86,6 @@ class Youtube extends React.Component {
         </Container>
       );
     } else {
-      console.log('after3', this.state.tableData.items);
       return (
         <Container>
           <h1>Cargando...</h1>
