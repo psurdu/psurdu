@@ -13,6 +13,7 @@ class Youtube extends React.Component {
       title: '',
       imagenUrl: '',
       descipcion: '',
+      id: '',
     };
     this.videoClick = this.videoClick.bind(this);
   }
@@ -30,6 +31,8 @@ class Youtube extends React.Component {
       title: responseData.items[this.state.selectedItem].snippet.title,
       descipcion:
         responseData.items[this.state.selectedItem].snippet.description,
+      id: responseData.items[this.state.selectedItem].snippet.resourceId
+        .videoId,
     });
   }
 
@@ -42,7 +45,24 @@ class Youtube extends React.Component {
       imagenUrl: data[item].snippet.thumbnails.high.url,
       title: data[item].snippet.title,
       descipcion: data[item].snippet.description,
+      id: data[item].snippet.resourceId.videoId,
     });
+  }
+
+  frameGenerator() {
+    return (
+      <>
+        <iframe
+          width="912"
+          height="513"
+          src={'https://www.youtube.com/embed/' + this.state.id}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </>
+    );
   }
 
   render() {
@@ -76,7 +96,7 @@ class Youtube extends React.Component {
             <Col>
               <Card>
                 <Card.Body>
-                  <Card.Img variant="top" src={this.state.imagenUrl} />
+                  {this.frameGenerator()}
                   <Card.Title>{this.state.title}</Card.Title>
                   <Card.Text>{this.state.descipcion}</Card.Text>
                 </Card.Body>

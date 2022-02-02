@@ -9,7 +9,8 @@ h3 {
   color: black;
 }
 
-img {
+img,
+iframe {
   max-height: 100%;
   max-width: 100%;
 }
